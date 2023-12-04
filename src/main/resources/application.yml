@@ -1,0 +1,24 @@
+spring:
+  # Database
+  datasource:
+    url: jdbc:postgresql://localhost:5433/avis?autoReconnect=true&useSSL=false&createDatabaseIfNotExist=true
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+
+  jpa:
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  # smtp4dev
+  mail:
+    host: localhost
+    port: 9025
+
+server:
+  port: 8083
+  servlet:
+    context-path: /api
