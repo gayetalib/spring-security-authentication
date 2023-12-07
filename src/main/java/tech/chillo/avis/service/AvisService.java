@@ -7,6 +7,8 @@ import tech.chillo.avis.entity.Avis;
 import tech.chillo.avis.entity.Utilisateur;
 import tech.chillo.avis.repository.AvisRepository;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class AvisService {
@@ -16,5 +18,9 @@ public class AvisService {
         Utilisateur userConnected = (Utilisateur) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         avis.setUtilisateur(userConnected);
         avisRepository.save(avis);
+    }
+
+    public List<Avis> listeAvis() {
+         return avisRepository.findAll();
     }
 }

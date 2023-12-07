@@ -1,0 +1,14 @@
+###
+POST http://localhost:8083/api/avis
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJub20iOiJUYXBoYSIsInN1YiI6InRhcGhhQHB0cy5zbiIsInJvbGUiOiJVU0VSIiwiZXhwIjoxNzAxODc2NzEzfQ.K8i28uAbmZ1rlCTumfDR87MOaWX41W3-_TXHS_zvL6U
+
+{
+  "message": "This is my message #1"
+}
+
+###
+GET http://localhost:8083/api/avis/liste
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBwdHMuc24iLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDE4ODEzNTUsIm5vbSI6ImFkbWluIn0.crgFrhEaAdil9Qx3f2A5HPOebeSEebN9qqILgAyFRys
+###

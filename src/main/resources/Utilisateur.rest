@@ -1,0 +1,46 @@
+###
+POST http://localhost:8083/api/user/inscription
+Content-Type: application/json
+
+{
+  "email": "tapha@pts.sn",
+  "name": "Tapha",
+  "password": "passer"
+}
+
+###
+
+POST http://localhost:8083/api/user/activation
+Content-Type: application/json
+
+{
+  "email": "tapha@pts.sn",
+  "code": "978053"
+}
+
+###
+// ROLE_USER
+POST http://localhost:8083/api/user/connexion
+Content-Type: application/json
+
+{
+  "username": "bassirou@pts.sn",
+  "password": "passer"
+}
+
+###
+// ROLE_ADMIN
+POST http://localhost:8083/api/user/connexion
+Content-Type: application/json
+
+{
+  "username": "admin@pts.sn",
+  "password": "admin"
+}
+
+###
+GET http://localhost:8083/api/users
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJub20iOiJhZG1pbiIsImV4cCI6MTcwMTkzODUyMSwicm9sZSI6IkFETUlOIiwic3ViIjoiYWRtaW5AcHRzLnNuIn0.vg5l_Y5GU42H3iDKArT8P6f_i4t1WWdv8HASUeZJSNo
+
+###

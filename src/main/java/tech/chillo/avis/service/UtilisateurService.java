@@ -11,6 +11,7 @@ import tech.chillo.avis.entity.Validation;
 import tech.chillo.avis.repository.RoleRepository;
 import tech.chillo.avis.repository.UtilisateurRepository;
 import java.time.Instant;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -49,5 +50,24 @@ public class UtilisateurService implements UserDetailsService {
         return utilisateurRepository
                 .findByEmail(username)
                 .orElseThrow(()-> new UsernameNotFoundException("Auncun utilisateur ne correspond à cet identifiant"));
+    }
+
+    public void nouveauMotDePasse(Map<String, String> parameters) throws Exception {
+        Utilisateur utilisateur = loadUserByUsername(parameters.get("email"));
+        Validation validation = validationService.lireEnFonctionDuCode(parameters.get("code"));
+        if (validation.getUtilisateur().getEmail().equals(utilisateur.getEmail())){
+            String mdpCrypt = passwordEncoder.encode(parameters.get("password"));
+            utilisateur.setPassword(mdpCrypt);
+            utilisateurRepository.save(utilisateur);
+        }
+    }
+
+    public void modifierMotDePasse(Map<String, String> params){
+        Utilisateur utilisateur = loadUserByUsername(params.get("email"));
+        validationService.enregistrer(utilisateur);
+    }
+
+    public List<Utilisateur> getListe() {
+        return utilisateurRepository.findAll();
     }
 }

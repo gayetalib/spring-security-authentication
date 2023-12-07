@@ -15,4 +15,8 @@ public interface JwtRepository extends JpaRepository<Jwt, Integer> {
     Optional<Jwt> findByUtilisateurEmailAndDesactiveAndExpired(@Email String utilisateur_email, boolean desactive, boolean expired);
 
     Stream<Jwt> findAllByUtilisateurEmail(@Email String utilisateur_email);
+
+    void deleteAllByExpiredAndDesactive(boolean expired, boolean desactive);
+
+    Optional<Jwt> findByRefreshTokenValeur(String refreshToken_valeur);
 }

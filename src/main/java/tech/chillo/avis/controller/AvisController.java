@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import tech.chillo.avis.entity.Avis;
 import tech.chillo.avis.service.AvisService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("avis")
 @RequiredArgsConstructor
@@ -16,5 +18,11 @@ public class AvisController {
     @PostMapping
     public void createAvis(@RequestBody Avis avis){
         avisService.createAvis(avis);
+    }
+
+
+    @GetMapping("/liste")
+    public List<Avis> listeAvis(){
+        return avisService.listeAvis();
     }
 }

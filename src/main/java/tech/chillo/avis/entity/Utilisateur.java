@@ -10,6 +10,7 @@ import javax.validation.constraints.Email;
 import java.util.Collection;
 import java.util.Collections;
 
+@Builder
 @Getter
 @Setter
 @AllArgsConstructor

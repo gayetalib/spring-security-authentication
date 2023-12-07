@@ -27,7 +27,7 @@ public class Validation {
 
     private Instant activation;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = {CascadeType.MERGE, CascadeType.DETACH})
     @JoinColumn(name = "useer_id", referencedColumnName = "id")
     private Utilisateur utilisateur;
 }
